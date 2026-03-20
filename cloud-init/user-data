@@ -1,0 +1,8 @@
+#cloud-config
+# Build-time cloud-init — sets a temporary password so Packer can SSH in.
+# This state is wiped (cloud-init clean) before the image is finalised,
+# so end-users customise the image entirely via their own cloud-init config.
+password: ubuntu
+chpasswd:
+  expire: false
+ssh_pwauth: true
